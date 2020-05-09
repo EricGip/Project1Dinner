@@ -8,17 +8,11 @@ $(document).ready(function () {
     }).then(function (response) {
       var drinkName = response.drinks[0].strDrink;
       var drinkInstructions = response.drinks[0].strInstructions;
-
-      console.log(drinkName)
-      //If they check alcoholic or not? -- recursion to call again
-      //if (response.drinks[0].strAlcoholic === "Alcoholic") {
-      //  getRandomDrink();
-      //};
-
       console.log(drinkInstructions)
 
       // TO DO need to list out all the ingredients? 
-      var ingredientsList = []
+      var ingredientsList = [];
+
       //ingredientsList.push(response.drinks[0].strIngredient1);
       //ingredientsList.push(response.drinks[0].strIngredient2);
       //ingredientsList.push(response.drinks[0].strIngredient3);
@@ -27,11 +21,31 @@ $(document).ready(function () {
 
       //instead of dot notation, just use [], add property as a string 
       // (response.drinks[0] ["strIngredient" + i]) to concatenate 
-      for (i = 1; i < 15; i++) {
+      for (i = 1; i < 20; i++) {
         ingredientsList.push(response.drinks[0]["strIngredient" + i])
-      }
+      };
 
       console.log(ingredientsList);
+
+      console.log(drinkName)
+
+      //  var addFoodRecipe = 
+      var drinkTitle = $("<h2>You've got luck with " + drinkName + "</h2>");
+
+      var drinkDirection = $("<p>" + drinkInstructions + "</p>");
+
+      var drinkIngredients = $("<p>" + ingredientsList + "</p>");
+
+      $(".right-drink-recipe").append(drinkTitle, drinkDirection, drinkIngredients);
+
+
+      //If they check alcoholic or not? -- recursion to call again
+      //if (response.drinks[0].strAlcoholic === "Alcoholic") {
+      //  getRandomDrink();
+      //};
+
+
+      // addFoodRecipe ()
     });
   };
 
@@ -63,7 +77,5 @@ $(document).ready(function () {
   };
 
   getRandomMeal();
-
-
 
 });

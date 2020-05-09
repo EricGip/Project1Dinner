@@ -37,5 +37,33 @@ $(document).ready(function () {
 
   getRandomDrink();
 
+  function getRandomMeal() {
+    var randomMealURL = "https://www.themealdb.com/api/json/v1/1/random.php"
+    $.ajax({
+      url: randomMealURL,
+      method: "GET"
+    }).then(function (response) {
+      var dishName = response.meals[0].strMeal;
+      alert(dishName)
+      var mealThumbnailURL = response.meals[0].strMealThumb
+      alert(mealThumbnailURL)
+      var mealIngredients = []
+      for (i = 1; i < 20; i++) {
+        mealIngredients.push(response.meals[0]["strIngredient" + i])
+      };
+      alert(mealIngredients);
+      var mealMeasurements = []
+      for (i = 1; i < 20; i++) {
+        mealMeasurements.push(response.meals[0]["strMeasure" + i])
+      };
+      alert(mealMeasurements);
+      var mealInstructions = response.meals[0].strInstructions;
+      alert(mealInstructions);
+    });
+  };
+
+  getRandomMeal();
+
+
 
 });

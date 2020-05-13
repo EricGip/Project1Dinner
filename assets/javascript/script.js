@@ -1,15 +1,38 @@
 $(document).ready(function () {
+
+  //================================================================= BUTTON FUNCTIONS =============================================================================
+  $("#leftBtn").on("click", function () {
+
+    getRandomMeal();
+
+  })
+
+  $("#middleBtn").on("click", function () {
+
+    getRandomDrink();
+
+  })
+
+
+
   function getRandomDrink() {
+
     var randomDrinkURL =
       "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+
     $.ajax({
       url: randomDrinkURL,
       method: "GET"
+
     }).then(function (response) {
+
       var drinkName = response.drinks[0].strDrink;
+
       var drinkInstructions = response.drinks[0].strInstructions;
+
       console.log(drinkInstructions);
       // TO DO need to list out all the ingredients?
+
       var ingredientsList = [];
       //ingredientsList.push(response.drinks[0].strIngredient1);
       //ingredientsList.push(response.drinks[0].strIngredient2);
@@ -18,21 +41,28 @@ $(document).ready(function () {
       //ingredientsList.push(response.drinks[0].strIngredient5);
       //instead of dot notation, just use [], add property as a string
       // (response.drinks[0] ["strIngredient" + i]) to concatenate
+
       for (i = 1; i < 15; i++) {
         if (response.drinks[0]["strIngredient" + i] !== null) {
           ingredientsList.push(response.drinks[0]["strIngredient" + i])
         };
       };
+
       console.log(ingredientsList);
+
       console.log(drinkName);
+
       //  var addFoodRecipe =
       var drinkTitle = $("<h2>You've got luck with " + drinkName + "</h2>");
+
       var drinkDirection = $("<p>" + drinkInstructions + "</p>");
+
       var drinkIngredients = $("<p>" + ingredientsList + "</p>");
+
       $(".right-drink-recipe").append(
         drinkTitle,
         drinkDirection,
-        drinkIngredients
+        drinkIngredients,
       );
       //If they check alcoholic or not? -- recursion to call again
       //if (response.drinks[0].strAlcoholic === "Alcoholic") {
@@ -41,7 +71,7 @@ $(document).ready(function () {
       // addFoodRecipe ()
     });
   }
-  getRandomDrink();
+
   function getRandomMeal() {
     var randomMealURL = "https://www.themealdb.com/api/json/v1/1/random.php";
     $.ajax({
@@ -67,7 +97,21 @@ $(document).ready(function () {
       console.log(mealMeasurements);
       var mealInstructions = response.meals[0].strInstructions;
       console.log(mealInstructions);
+
+      var mealTitleEl = $("<h2>Good Luck Making " + dishName + "</h2>");
+      var mealInstructionsEl = $("<p>" + mealInstructions + "</p>");
+      var mealIngredientsEl = $("<p>" + mealIngredients + "</p>");
+      var mealMeasurementsEl = $("<p>" + mealMeasurements + "</p>");
+      var mealThumbnailURLEl = $("<img>").attr("src", mealThumbnailURL);
+
+      $(".left-food-recipe").append(
+        mealTitleEl,
+        mealIngredientsEl,
+        mealMeasurementsEl,
+        mealInstructionsEl,
+        mealThumbnailURLEl,
+      )
     });
   }
-  getRandomMeal();
+
 });

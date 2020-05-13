@@ -1,0 +1,16 @@
+.left-food-recipe {
+    width: 50%;
+    position: relative;
+    float: left;
+};
+
+.right-drink-recipe {
+    width: 50%;
+    position: relative;
+    float: right;
+};
+
+.bottom-song {
+    width: 100%;
+    position: relative;
+};

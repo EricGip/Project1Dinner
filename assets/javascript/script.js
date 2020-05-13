@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  //================================================================= BUTTON FUNCTIONS =============================================================================
+  //================================================================= BUTTON CALLS =============================================================================
   $("#leftBtn").on("click", function () {
 
     getRandomMeal();
@@ -13,9 +13,11 @@ $(document).ready(function () {
 
   })
 
-
+  //================================================================== FUNCTIONS PULLING RANDOM =====================================================
 
   function getRandomDrink() {
+
+    $(".right-drink-recipe").empty();
 
     var randomDrinkURL =
       "https://www.thecocktaildb.com/api/json/v1/1/random.php";
@@ -26,6 +28,8 @@ $(document).ready(function () {
 
     }).then(function (response) {
 
+      console.log(response)
+
       var drinkName = response.drinks[0].strDrink;
 
       var drinkInstructions = response.drinks[0].strInstructions;
@@ -33,7 +37,6 @@ $(document).ready(function () {
       console.log(drinkInstructions);
       // TO DO need to list out all the ingredients?
 
-      var ingredientsList = [];
       //ingredientsList.push(response.drinks[0].strIngredient1);
       //ingredientsList.push(response.drinks[0].strIngredient2);
       //ingredientsList.push(response.drinks[0].strIngredient3);
@@ -42,15 +45,22 @@ $(document).ready(function () {
       //instead of dot notation, just use [], add property as a string
       // (response.drinks[0] ["strIngredient" + i]) to concatenate
 
+      //for loop for ingridient list
+      var ingredientsList = [];
       for (i = 1; i < 15; i++) {
         if (response.drinks[0]["strIngredient" + i] !== null) {
           ingredientsList.push(response.drinks[0]["strIngredient" + i])
         };
       };
 
-      console.log(ingredientsList);
+      //for loop for measurement list
+      var drinkMeasurements = [];
+      for (i = 1; i < 20; i++) {
+        if (response.drinks[0]["strMeasure" + i] !== " ")
+          drinkMeasurements.push(response.drinks[0]["strMeasure" + i]);
+      }
 
-      console.log(drinkName);
+      var drinkImage = response.drinks[0].strDrinkThumb;
 
       //  var addFoodRecipe =
       var drinkTitle = $("<h2>You've got luck with " + drinkName + "</h2>");
@@ -59,10 +69,16 @@ $(document).ready(function () {
 
       var drinkIngredients = $("<p>" + ingredientsList + "</p>");
 
+      var drinkMeasurementsEl = $("<p>" + drinkMeasurements + "</p>")
+
+      var drinkImageEl = $("<img>").attr("src", drinkImage);
+
       $(".right-drink-recipe").append(
         drinkTitle,
-        drinkDirection,
         drinkIngredients,
+        drinkMeasurementsEl,
+        drinkDirection,
+        drinkImageEl,
       );
       //If they check alcoholic or not? -- recursion to call again
       //if (response.drinks[0].strAlcoholic === "Alcoholic") {
@@ -73,35 +89,56 @@ $(document).ready(function () {
   }
 
   function getRandomMeal() {
+
+    $(".left-food-recipe").empty();
+
     var randomMealURL = "https://www.themealdb.com/api/json/v1/1/random.php";
+
     $.ajax({
       url: randomMealURL,
       method: "GET"
+
     }).then(function (response) {
+
       var dishName = response.meals[0].strMeal;
+
       console.log(dishName);
+
       var mealThumbnailURL = response.meals[0].strMealThumb;
+
       console.log(mealThumbnailURL);
+
       var mealIngredients = [];
+
       for (i = 1; i < 20; i++) {
         if (response.meals[0]["strIngredient" + i] !== "") {
           mealIngredients.push(response.meals[0]["strIngredient" + i])
         };
       }
+
       console.log(mealIngredients);
+
       var mealMeasurements = [];
+
       for (i = 1; i < 20; i++) {
         if (response.meals[0]["strMeasure" + i] !== "")
           mealMeasurements.push(response.meals[0]["strMeasure" + i]);
       }
+
       console.log(mealMeasurements);
+
       var mealInstructions = response.meals[0].strInstructions;
+
       console.log(mealInstructions);
 
       var mealTitleEl = $("<h2>Good Luck Making " + dishName + "</h2>");
+
       var mealInstructionsEl = $("<p>" + mealInstructions + "</p>");
+
       var mealIngredientsEl = $("<p>" + mealIngredients + "</p>");
+
       var mealMeasurementsEl = $("<p>" + mealMeasurements + "</p>");
+
       var mealThumbnailURLEl = $("<img>").attr("src", mealThumbnailURL);
 
       $(".left-food-recipe").append(

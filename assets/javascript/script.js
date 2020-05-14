@@ -189,7 +189,7 @@ $(document).ready(function () {
       "kanye_west",
       "kings_of_leon",
       "Metallica",
-      "disturbed",
+      "sade",
       "nirvana",
       "post_malone",
 

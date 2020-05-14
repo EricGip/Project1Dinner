@@ -1,16 +1,84 @@
-.left-food-recipe {
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 200px;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+#about-us {
+    margin-left: 20px;
+}
+
+div.left-food-recipe {
     width: 50%;
     position: relative;
     float: left;
+    margin: 20px 20px 20px 5px;
+    clear: both;
+    
 };
 
-.right-drink-recipe {
+div.right-drink-recipe {
     width: 50%;
     position: relative;
     float: right;
+    margin: 20px 5px 20px 20px;
+    clear: both;
 };
 
-.bottom-song {
+#buttonDiv {
+    margin: 50px 50px 50px 50px;
+}
+
+#recipeDiv {
     width: 100%;
-    position: relative;
-};
+}
+
+#leftBtn {
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+#middleBtn {
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+#rightBtn {
+    margin-left: 0x;
+    margin-right: 0px;
+}
+
+#header {
+    border-bottom: 8px solid gray;
+    background-color: #20315A ; 
+    color: white;
+}
+
+#musicDiv {
+    clear:both;
+    margin-top: 50px;
+    margin-top: 50px;
+    text-align: center;
+    height: 300px;
+}
+
+#footer {
+    background: #20315A;
+    color: #ffff;
+    clear: both;
+    border-top: 8px solid gray;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+}

@@ -22,7 +22,7 @@
 
     <!-- Nav Bar/Title Bar for title-->
     <!-- Jumbotron for Title -->
-    <div class="jumbotron" style="background-color: #20315A ; color: white;">
+    <div id="header" class="jumbotron">
         <h1 class="text-center">
             <strong>
 
@@ -58,51 +58,54 @@
         </div>
 
         <!-- This div is to house the two buttons -->
-        <div class="row">
+        <div id="buttonDiv" class="d-flex bd-highlight">
 
             <!-- Left Random Food Recipe button -->
-            <div id="leftBtn">
-                <button type="button" class="btn btn-outline-primary btn-lg food">Random Food Recipe Me Now!</button>
+            <div class="p-2 flex-fill bd-highlight">
+                <button id="leftBtn" type="button" class="btn btn-outline-primary btn-lg food">Random Food Recipe Me
+                    Now!</button>
             </div>
 
             <!-- Middle Random Cocktail Recipe Button -->
-            <div id="middleBtn">
-                <button type="button" class="btn btn-outline-primary btn-lg drink">Random Drink Recipe Me Now!</button>
+            <div class="p-2 flex-fill bd-highlight">
+                <button id="middleBtn" type="button" class="btn btn-outline-primary btn-lg drink">Random Drink Recipe Me
+                    Now!</button>
             </div>
 
             <!-- Right Random Cocktail Recipe Button -->
-            <div id="rightBtn">
-                <button type="button" class="btn btn-outline-primary btn-lg music">Random Song Me Now!</button>
+            <div class="p-2 flex-fill bd-highlight">
+                <button id="rightBtn" type="button" class="btn btn-outline-primary btn-lg music">Random Song Me
+                    Now!</button>
             </div>
+
         </div>
 
-        <!-- This is the food recipe div and it needs to float left-->
-        <div class="left-food-recipe"></div>
+        <div id="recipeDiv">
 
-        <!-- This is the right cocktail recipe div and it needs to float right -->
-        <div class="right-drink-recipe"></div>
+            <!-- This is the food recipe div and it needs to float left-->
+            <div class="left-food-recipe"></div>
 
-        <!-- Footer Region -->
-        <div class="row">
-            <hr>
+            <!-- This is the right cocktail recipe div and it needs to float right -->
+            <div class="right-drink-recipe"></div>
 
-            <!-- Music div - this shoudl streach across all the way-->
-            <div class="col-lg-12 bottom-song">
-                <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
-            </div>
-
-            <div class="col-sm-12">
-
-                <!-- Line Break followed by closing -->
-                <hr>
-                <h5 class="text-center">
-                    <small>Made with lots and lots of work and
-                        <i class="fa fa-heart"></i>
-                    </small>
-                </h5>
-
-            </div>
         </div>
+    </div>
+
+    <!-- Music div - this shoudl streach across all the way-->
+    <div id="musicDiv" class="music">
+        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+    </div>>
+
+    <!-- Footer Region -->
+    <div id="footer" class="col-sm-12">
+
+        <!-- Line Break followed by closing -->
+        <hr>
+        <h5 class="text-center">
+            <small>Made with drinks and hard work...
+                <i class="fa fa-heart"></i>
+            </small>
+        </h5>
 
     </div>
 

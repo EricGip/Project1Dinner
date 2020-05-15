@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <title>Dinner Project</title>
     <!-- Font Awesome CSS Icons (For cool glyphicons) -->
@@ -10,12 +12,13 @@
     <!-- Reset Styles File Link-->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
-    <!-- Link to our custom stylesheet-->
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-
     <!-- Bootstrap CSS CDN  -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <!-- Link to our custom stylesheet-->
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
 </head>
 
 <body>
@@ -24,6 +27,7 @@
     <!-- Jumbotron for Title -->
     <div id="header" class="jumbotron">
         <h1 class="text-center">
+
             <strong>
 
                 <!-- Egg Icon -->
@@ -44,7 +48,34 @@
                     clip-rule="evenodd" />
                 <circle cx="8" cy="8" r="3" />
             </svg>
+
         </h1>
+
+        <hr>
+
+        <!-- This div is to house the two buttons -->
+        <div id="buttonDiv" class="d-flex justify-content-around">
+
+            <!-- Left Random Food Recipe button -->
+            <div class="p-2 flex-fill bd-highlight">
+                <button id="leftBtn" type="button" class="btn btn-dark btn-lg food buttons">Random Food Recipe Me
+                    Now!</button>
+            </div>
+
+            <!-- Middle Random Cocktail Recipe Button
+            <div class="p-2 flex-fill bd-highlight">
+                <button id="middleBtn" type="button" class="btn btn-primary btn-lg drink">Random Drink Recipe Me
+                    Now!</button>
+            </div> -->
+
+            <!-- Right Random Cocktail Recipe Button -->
+            <div class="p-2 flex-fill bd-highlight">
+                <button id="rightBtn" type="button" class="btn btn-dark btn-lg music buttons">Random Song Me
+                    Now!</button>
+            </div>
+
+        </div>
+
     </div>
     <!-- Main Container -->
     <div class="container">
@@ -57,30 +88,7 @@
                 voluptatibus assumenda eum eveniet?</p>
         </div>
 
-        <hr>
 
-        <!-- This div is to house the two buttons -->
-        <div id="buttonDiv" class="d-flex bd-highlight">
-
-            <!-- Left Random Food Recipe button -->
-            <div class="p-2 flex-fill bd-highlight">
-                <button id="leftBtn" type="button" class="btn btn-primary btn-lg food">Random Food Recipe Me
-                    Now!</button>
-            </div>
-
-            <!-- Middle Random Cocktail Recipe Button -->
-            <div class="p-2 flex-fill bd-highlight">
-                <button id="middleBtn" type="button" class="btn btn-primary btn-lg drink">Random Drink Recipe Me
-                    Now!</button>
-            </div>
-
-            <!-- Right Random Cocktail Recipe Button -->
-            <div class="p-2 flex-fill bd-highlight">
-                <button id="rightBtn" type="button" class="btn btn-primary btn-lg music">Random Song Me
-                    Now!</button>
-            </div>
-
-        </div>
 
         <hr>
 
@@ -97,9 +105,7 @@
     </div>
 
     <!-- Music div - this shoudl streach across all the way-->
-    <div id="musicDiv" class="music">
-        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
-    </div>>
+    <div id="musicDiv" class="musicBox"></div>>
 
     <!-- Footer Region -->
     <div id="footer" class="col-sm-12">

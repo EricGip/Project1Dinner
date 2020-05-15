@@ -5,14 +5,15 @@ $(document).ready(function () {
   $("#leftBtn").on("click", function () {
 
     getRandomMeal();
-
-  })
-
-  $("#middleBtn").on("click", function () {
-
     getRandomDrink();
 
   })
+
+  // $("#middleBtn").on("click", function () {
+
+  //   getRandomDrink();
+
+  // })
 
   $("#rightBtn").on("click", function () {
 
@@ -179,6 +180,8 @@ $(document).ready(function () {
   //--------------------------- Random Music Video Function ----------------------
   function getMusicVideo() {
 
+    $("#musicDiv").empty();
+
     var artists = [
       "rick_astley",
       "justin_bieber",
@@ -211,6 +214,10 @@ $(document).ready(function () {
 
       var artistId = response.artists[0].idArtist;
 
+      var artistName = response.artists[0].strArtist;
+
+      var songGenre = response.artists[0].strGenre;
+
       console.log(artistId)
 
       $.ajax({
@@ -219,20 +226,66 @@ $(document).ready(function () {
 
       }).then(function (response) {
 
-        var youtubeLinks = [];
+       // need to 
+        //var youtubeLinks = [];
 
-        for (i = 0; i < 3; i++) {
-          youtubeLinks.push(response.mvids[i].strMusicVid);
-        };
+        // for (i = 0; i < 3; i++) {
+        //  youtubeLinks.push(response.mvids[i].strMusicVid);
+        //}
 
-        console.log(youtubeLinks)
+        var youtubeLinks = response.mvids[0].strMusicVid
+
+        youtubeLinks = youtubeLinks.replace("watch", "embed")
+
+        console.log(youtubeLinks);
+        
+        console.log(artistName)
+
+        // strArtist - artistId
+        // strGenre - songGenre
+
+        // strTrack - songTrack
+        var songTrack = response.mvids[0].strTrack
+
+        // strTrackThumb - trackThumb
+        var trackThumb = response.mvids[0].strTrackThumb
+        // strMusicVid -- youtubeLinks
+
+        // DOM Elements
+        var trackThumbURLEl = $("<img>")
+        .attr("src", trackThumb)
+        .css("width", "75px")
+        .css("height", "75px")
+
+        var songTitleEl = $("<h2>Maybe you'll like: " + songTrack + " " + "</h2>");
+
+        var songGenreEl = $("<p>" + songGenre + "</p>");
+
+        var songTrackEl = $("<p>" + songTrack + "</p>");
+
+        var musicVideoEl = $("<iframe>");
+        
+        $(songTitleEl).append(
+          trackThumbURLEl
+        )
+
+        musicVideoEl.attr("src", youtubeLinks)
+        .attr("frameborder", 0)
+        .attr("allow", "accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture")
+        .attr("allowfullscreen");
+
+        var lineBreak = $("<br>")
+
+        $("#musicDiv").append(
+          songTitleEl,
+          songGenreEl,
+          songTrackEl,
+          musicVideoEl
+        );
 
       });
 
     });
 
   };
-
-  getMusicVideo();
-
 });

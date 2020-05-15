@@ -261,9 +261,10 @@ $(document).ready(function () {
 
         var songTitleEl = $("<h2>Maybe you'll like: " + songTrack + " " + "</h2>");
 
-        var songGenreEl = $("<p>" + songGenre + "</p>");
+        var artistNameEl = $("<p>" + "<h3> By : " + artistName + "</h3>" + "</p>")
+        
+        var songGenreEl = $("<p>" + "<h3> Genre: " + songGenre +  "</h3>" + "</p>");
 
-        var songTrackEl = $("<p>" + songTrack + "</p>");
 
         var musicVideoEl = $("<iframe>");
         
@@ -276,12 +277,10 @@ $(document).ready(function () {
         .attr("allow", "accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture")
         .attr("allowfullscreen");
 
-        var lineBreak = $("<br>")
-
         $("#musicDiv").append(
           songTitleEl,
+          artistNameEl,
           songGenreEl,
-          songTrackEl,
           musicVideoEl
         );
 

@@ -261,9 +261,10 @@ $(document).ready(function () {
 
         var songTitleEl = $("<h2>Maybe you'll like: " + songTrack + " " + "</h2>");
 
+        var artistNameEl = $("<p>" + "<h3> By : " + artistName + "</h3>" + "</p>")
+        
         var songGenreEl = $("<p>" + "<h3> Genre: " + songGenre +  "</h3>" + "</p>");
 
-        var artistNameEl = $("<p>" + "<h3> Artist: " + artistName + "</h3>" + "</p>")
 
         var musicVideoEl = $("<iframe>");
         
@@ -278,8 +279,8 @@ $(document).ready(function () {
 
         $("#musicDiv").append(
           songTitleEl,
-          songGenreEl,
           artistNameEl,
+          songGenreEl,
           musicVideoEl
         );
 

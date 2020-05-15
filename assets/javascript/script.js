@@ -236,6 +236,8 @@ $(document).ready(function () {
         var youtubeLinks = response.mvids[0].strMusicVid
 
         youtubeLinks = youtubeLinks.replace("watch", "embed")
+        youtubeLinks = youtubeLinks.replace("http", "https")
+
 
         console.log(youtubeLinks);
         

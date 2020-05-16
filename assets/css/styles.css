@@ -4,10 +4,22 @@ html {
 }
 
 body {
+    background-color:#c1853b ;
     background-image: url("../images/bckgrnd_colorsplat.png");
     margin: 0 0 200px;
 }
-
+h6 {
+    font-size: 22px;
+    color: white;
+}
+h2 {
+    font-size: 2em;
+    color: #000066;
+}
+p {
+    font-size: 1.5em;
+    color: #000000;
+}
 .container {
     max-width: 1000px;
 }
@@ -28,7 +40,7 @@ body {
     width: 50%;
     position: relative;
     float: right;
-    margin: 0 -10px 20px 20 px;
+    margin: 0 -10px 20px 20px;
     clear: both;
 };
 
@@ -58,7 +70,7 @@ body {
 
 #header {
     border-bottom: 8px solid gray;
-    background-color: #20315A ; 
+    background-color: #85311b ; 
     color: white;
 }
 
@@ -71,8 +83,8 @@ body {
 }
 
 #footer {
-    background: #20315A;
-    color: #ffff;
+    background: #FAF0E6;
+    color: #2f0505;
     clear: both;
     border-top: 8px solid gray;
     font-size: 12px;

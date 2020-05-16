@@ -195,6 +195,7 @@ $(document).ready(function () {
       "sade",
       "nirvana",
       "post_malone",
+      "James_Blunt",
 
     ];
 

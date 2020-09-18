@@ -1,2 +1,3 @@
-# Project1Dinner
-Pick a meal, cocktail, and playlist!
+# The Meal-anator
+
+https://ericgip.github.io/Project1Dinner/

@@ -1,6 +1,6 @@
 # THE MEAL-ANATOR
 
-https://ericgip.github.io/THE-MEAL-ANATOR/
+[Demo](https://ericgip.github.io/THE-MEAL-ANATOR/)
 
 Made with HTML, CSS, and JS. 
 
